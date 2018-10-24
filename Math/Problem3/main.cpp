@@ -29,6 +29,9 @@ unsigned int getLCM(unsigned int a, unsigned int b) {
     return (a * b) / getGcd(a, b);
 }
 
+// start, end -> iterator
+// std::accumlate(begin, end, 1, operator);
+
 int main(int argc, char* argv[]) {
     unsigned int a, b;
     printf("Input a, b : "); scanf("%d %d", &a, &b);

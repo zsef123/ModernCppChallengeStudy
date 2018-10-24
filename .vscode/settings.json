@@ -13,6 +13,7 @@
         "typeinfo": "cpp",
         "algorithm": "cpp",
         "pointers": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "vector": "cpp"
     }
 }

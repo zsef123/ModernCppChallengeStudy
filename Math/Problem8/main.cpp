@@ -6,6 +6,7 @@
 
 // Write a program that prints all Armstrong numbers with three digits.
 
+// Make lookup table in each digits.
 bool isArmstrong(int x) {
     std::string digits = std::to_string(x);
     int out = 0;
