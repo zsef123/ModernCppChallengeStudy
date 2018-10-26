@@ -1,6 +1,9 @@
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <boost/tokenizer.hpp>
+#include <typeinfo>
+
 #include "IPv4.h"
 
 
@@ -35,4 +38,45 @@ void IPv4::readFromConsole() {
 void IPv4::writeToConsole() {
     if (this->saved)
         printf("%d.%d.%d.%d\n", this->addr[0], this->addr[1], this->addr[2], this->addr[3]);
+}
+
+IPv4& IPv4::operator++() {
+    bool carry = true;
+    for (uint32_t idx = 3; idx >= 0 && carry ; idx--) {
+        if (this->addr[idx] == 255) {
+            this->addr[idx] = 0;
+            carry = true;
+        }
+        else {
+            this->addr[idx] += 1;
+            carry = false;
+        }
+    }
+    return *this;
+}
+
+IPv4 IPv4::operator++(int) {
+    IPv4 tmp = *this;
+    ++*this;
+    return tmp;
+}
+
+bool IPv4::operator>(const IPv4 &a) {
+    for (uint32_t idx = 0 ; idx < 4 ; idx++) {
+        if (this->addr[idx] > a.addr[idx])
+            return true;
+        else if (this->addr[idx] < a.addr[idx])
+            return false;
+    }
+    return false;
+}
+
+bool IPv4::operator<(const IPv4 &a) {
+    return !(*this > a) && !(*this == a);
+}
+
+bool IPv4::operator==(const IPv4 &a) {
+    return std::equal(std::begin(this->addr),
+                      std::end(this->addr),
+                      std::begin(a.addr));
 }
