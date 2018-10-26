@@ -11,8 +11,8 @@ bool IPv4::strToV4(std::string &in_) {
 
     uint32_t i = 0;
     for (const auto &t : tokens) {
-        bool isDigit = (t.find_first_not_of("0123456789") == std::string::npos);
-        if (!isDigit || i > 3)
+        bool isDigit = (t.find_first_not_of("0123456789") == std::string::npos);        
+        if (!isDigit || i > 3 || t.length() > 3 || t.length() == 0)
             return false;
         this->addr[i++] = u_int8_t(std::stoi(t));
     }
