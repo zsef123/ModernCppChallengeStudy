@@ -14,6 +14,13 @@
         "algorithm": "cpp",
         "pointers": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp",
+        "multi_span": "cpp",
+        "string_span": "cpp",
+        "iterator": "cpp"
     }
 }
