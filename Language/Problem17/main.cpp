@@ -32,6 +32,16 @@ class Array2D {
                     storage[i++] = k;
             }
         }
+        
+        Array2D(const Array2D &other) : Array2D() {
+            for (size_t i = 0; i < ROW * COL; i++)
+                storage[i] = other.storage[i];
+        }
+
+        Array2D(Array2D &&other) : Array2D() {
+            storage = std::move(other.storage);
+            array = std::move(other.array);
+        }
 
         T* operator[](size_t row) {
             return array[row];
@@ -56,13 +66,35 @@ class Array2D {
             return &(storage[ROW * COL]);
         }
 
-
+    
         // what different const T& with T&& ??
-        Array2D& operator=(const Array2D& other) {}
-        Array2D& operator=(Array2D&& other) {}
+        Array2D& operator=(const Array2D& other) {
+            for (size_t i = 0; i < ROW * COL; i++)
+                storage[i] = other.storage[i];
+            return *this;
+        }
+        // move assign
+        Array2D& operator=(Array2D&& other) {
+            storage = std::move(other.storage);
+            array = std::move(other.array);
+            return *this;
+        }
 
+        // friend???
+        // call to implicitly-deleted copy constructor of 'Array2D<int, 2, 2>'
+        friend void swap(Array2D &a, Array2D &b) {
+            Array2D tmp = std::move(a);
+            a = std::move(b);
+            b = std::move(tmp);
+        }
 
-        void swap(Array2D &a, Array2D &b) {}
+        void print() {
+            for (uint32_t i = 0; i < ROW; i++) {
+                for (uint32_t j = 0; j< COL; j++) 
+                    printf("%d ", array[i][j]);
+            }
+            printf("\n");
+        }
 };
 
 int main() {
@@ -70,7 +102,17 @@ int main() {
     printf("arr : %d %d %d %d\n", arr[0][0], arr[0][1], arr[1][0], arr[1][1]);
 
     Array2D<int, 2, 2> arr2 = {{1, 2}, {3, 4}};
-    printf("arr2 : %d %d %d %d\n", arr2[0][0], arr2[0][1], arr2[1][0], arr2[1][1]);
+    printf("arr2 : "); arr2.print();
     arr2[0][0] = 5;
-    printf("arr2 : %d %d %d %d\n", arr2[0][0], arr2[0][1], arr2[1][0], arr2[1][1]);
+    printf("arr2 : "); arr2.print();
+
+    printf("Assign arr2 to arr\n");
+    arr = arr2;
+    printf("arr : "); arr.print();
+
+    Array2D<int, 2, 2> arr3 = {9,8,7,6};
+    printf("Swap arr3 and arr\n");
+    swap(arr, arr3);
+    printf("arr : "); arr.print();
+    printf("arr3 : "); arr3.print();
 }
