@@ -28,16 +28,25 @@ include(GetModules)
 # add_subdirectory(Math/Problem14)
 
 # Ch.2
-add_subdirectory(Language/Problem15)
-add_subdirectory(Language/Problem16)
-add_subdirectory(Language/Problem17)
-add_subdirectory(Language/Problem18)
-add_subdirectory(Language/Problem19)
-add_subdirectory(Language/Problem20)
+# add_subdirectory(Language/Problem15)
+# add_subdirectory(Language/Problem16)
+# add_subdirectory(Language/Problem17)
+# add_subdirectory(Language/Problem18)
+# add_subdirectory(Language/Problem19)
+# add_subdirectory(Language/Problem20)
 add_subdirectory(Language/Problem21)
-add_subdirectory(Language/Problem22)
+# add_subdirectory(Language/Problem22)
 
-# add_subdirectory(Regex)         # Ch.3
+add_subdirectory(Regex/Problem23)
+add_subdirectory(Regex/Problem24)
+add_subdirectory(Regex/Problem25)
+add_subdirectory(Regex/Problem26)
+add_subdirectory(Regex/Problem27)
+add_subdirectory(Regex/Problem28)
+add_subdirectory(Regex/Problem29)
+add_subdirectory(Regex/Problem30)
+add_subdirectory(Regex/Problem31)
+
 # add_subdirectory(Filesystem)    # Ch.4
 # add_subdirectory(DateTime)      # Ch.5
 # add_subdirectory(Algorithm)     # Ch.6
