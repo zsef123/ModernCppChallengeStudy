@@ -10,7 +10,7 @@ class Array2D {
     public:
         Array2D() :
             storage(std::make_unique<T[]>(ROW * COL)),
-            array(std::make_unique<T*[]>(ROW)) 
+            array(std::make_unique<T*[]>(ROW))
         {
             for (size_t i = 0; i < ROW; i++)
                 array[i] = &storage[i * COL];
@@ -81,7 +81,6 @@ class Array2D {
         }
 
         // friend???
-        // call to implicitly-deleted copy constructor of 'Array2D<int, 2, 2>'
         friend void swap(Array2D &a, Array2D &b) {
             Array2D tmp = std::move(a);
             a = std::move(b);
@@ -98,6 +97,7 @@ class Array2D {
 };
 
 int main() {
+
     Array2D<int, 2, 2> arr = {1, 2, 3, 4};
     printf("arr : %d %d %d %d\n", arr[0][0], arr[0][1], arr[1][0], arr[1][1]);
 

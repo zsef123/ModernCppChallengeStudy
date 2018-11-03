@@ -1,6 +1,7 @@
 #include <iostream>
 #include <regex>
 #include <string>
+
 // License plate validation
 
 void print_license(const std::string &s) {

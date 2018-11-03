@@ -12,6 +12,7 @@ to the end of a container that has a method push_back(T&& value).
 template <typename C, typename ... T>
 void push_back(C& c, T&&... items) {
     // why use forward?
+    // L, R value를 나눠서 넘겨준다.
     // (container.push_back(std::forward<T>(items)), ...);
     (c.push_back(items), ...);
 }

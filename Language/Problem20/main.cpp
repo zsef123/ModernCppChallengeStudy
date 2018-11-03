@@ -17,12 +17,11 @@ bool contains_all(C& c, T&& ... args) {
 template <typename C, typename ... T>
 bool contains_any(C& c, T&& ... args) {
     return ((std::find(c.begin(), c.end(), args) != c.end()) || ...);
-
 }
+
 template <typename C, typename ... T>
 bool contains_none(C& c, T&& ... args) {
     return !((std::find(c.begin(), c.end(), args) == c.end()) || ...);
-
 }
 
 int main(int argc, char* argv[])
