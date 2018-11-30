@@ -66,6 +66,16 @@ add_subdirectory(Algorithm/Problem47)
 add_subdirectory(Algorithm/Problem48)
 add_subdirectory(Algorithm/Problem49)
 add_subdirectory(Algorithm/Problem50)
+add_subdirectory(Algorithm/Problem51)
+add_subdirectory(Algorithm/Problem52)
+add_subdirectory(Algorithm/Problem53)
+add_subdirectory(Algorithm/Problem54)
+add_subdirectory(Algorithm/Problem55)
+add_subdirectory(Algorithm/Problem56)
+add_subdirectory(Algorithm/Problem57)
+add_subdirectory(Algorithm/Problem58)
+add_subdirectory(Algorithm/Problem59)
+add_subdirectory(Algorithm/Problem60)
 
 # add_subdirectory(Concurrency)   # Ch.7
 # add_subdirectory(Serialization) # Ch.9
