@@ -48,17 +48,25 @@ include(GetModules)
 # add_subdirectory(Regex/Problem31)
 
 # Ch.4
-add_subdirectory(Filesystem/Problem32)
-add_subdirectory(Filesystem/Problem33)
-add_subdirectory(Filesystem/Problem34)
-add_subdirectory(Filesystem/Problem35)
-add_subdirectory(Filesystem/Problem36)
-add_subdirectory(Filesystem/Problem37)
-add_subdirectory(Filesystem/Problem38)
+# add_subdirectory(Filesystem/Problem32)
+# add_subdirectory(Filesystem/Problem33)
+# add_subdirectory(Filesystem/Problem34)
+# add_subdirectory(Filesystem/Problem35)
+# add_subdirectory(Filesystem/Problem36)
+# add_subdirectory(Filesystem/Problem37)
+# add_subdirectory(Filesystem/Problem38)
 
 
 # add_subdirectory(DateTime)      # Ch.5
-# add_subdirectory(Algorithm)     # Ch.6
+
+# Ch 6
+add_subdirectory(Algorithm/Problem45)
+add_subdirectory(Algorithm/Problem46)
+add_subdirectory(Algorithm/Problem47)
+add_subdirectory(Algorithm/Problem48)
+add_subdirectory(Algorithm/Problem49)
+add_subdirectory(Algorithm/Problem50)
+
 # add_subdirectory(Concurrency)   # Ch.7
 # add_subdirectory(Serialization) # Ch.9
 # add_subdirectory(DesignPattern) # Ch.8
