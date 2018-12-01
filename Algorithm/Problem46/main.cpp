@@ -6,52 +6,57 @@
 template <typename T>
 class CircularBuffer {
     private:
-    int capacity;
     std::vector<int> vec;
     int current_idx;
     int current_size;
 
     public:
-    CircularBuffer(const int capacity=3)
-    : capacity(capacity), current_idx(0), current_size(0)
-    {
-        vec(size);
-    }
+    CircularBuffer(const int capacity_=3)
+    : current_idx(0), current_size(0), vec(capacity_, 0)
+    { }
 
     void push(const T& x) {
-        vec[current_idx++] = x;
-        if (current_size < capacity)
+        vec[current_idx] = x;
+        current_idx++;
+        if (current_size < vec.size())
             current_size++;
-        if (current_idx == capacity) {
+        if (current_idx == vec.size())
             current_idx = 0;
-        }
     }
 
+    // empty를 고쳐 안했구나
     void pop() {
         current_size--;
-        current_idx--;        
+        current_idx--;
     }
 
-    bool empty() {        
+    bool empty() {
         return (current_size == 0);
     }
 
     bool full() {
-        return (current_size == size);
+        return (current_size == vec.size());
     }
 
     int size() {
-        return size;
+        return current_size;
     }
 
     int capacity() {
-        return capacity;
+        return vec.size();
     }
 
     void print_all() {
-        std::cout << vec << "\n";
+        int start = current_idx-1;
+        std::cout << "current_size : " << current_size << ", current_idx : " << current_idx << "\n";
+        for (int i = 0 ; i < current_size; i++) {
+            std::cout << vec[start++];
+            if (start == current_size)
+                start = 0;
+        }
+        std::cout << "\n";
     }
-}
+};
 
 int main(int argc, char* argv[])
 {
@@ -59,7 +64,7 @@ int main(int argc, char* argv[])
     CircularBuffer<int> cb(3);
     for (auto v : vec) {
         cb.push(v);
-        cv.print_all();
+        cb.print_all();
     }
 
     return 0;

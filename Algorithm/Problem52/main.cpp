@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-
+#include <iostream>
 
 // Generating all the permutations of a string
 int main(int argc, char* argv[]) {

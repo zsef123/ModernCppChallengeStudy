@@ -10,6 +10,7 @@ auto get_avg_rate(std::vector<int> const& vec) {
     std::sort(vec.begin(), vec.end());
     int start = vec.size() * 0.05;
     int end = vec.size() * 0.95;
+    // start end 왜 안했지...
     return double(std::accumulate(vec.begin(), vec.end(), 0.0)) / double(end - start);
 }
 

@@ -1,5 +1,7 @@
 #include <gsl/gsl>
 #include <vector>
+#include <iostream>
+
 
 // Select algorithm
 
@@ -68,7 +70,7 @@ class BookIter {
     const_iterator end() const {
         return const_iterator(range.cend(), func);
     }
-}
+};
 
 std::vector<book> books{
    {101, "The C++ Programming Language", "Bjarne Stroustrup"},

@@ -1,16 +1,16 @@
 #include <gsl/gsl>
 #include <vector>
 #include <string>
-
+#include <iostream>
 
 //Transforming a list of phone numbers
-auto transform(std::vector<std::string> const&vec, int region) {
-    std::string region_str = "+" + std::string(region);
+auto transform(std::vector<std::string> const& vec, int region) {
+    std::string region_str = "+" + std::to_string(region);
     std::vector<std::string> out;
     for (auto num : vec) {
         num.erase(std::remove(num.begin(), num.end(), ' '), num.end());
 
-        int start = (num[0] == "0" || num[0] == "+") ? 1 : 0;
+        int start = (num[0] == '0' || num[0] == '+') ? 1 : 0;
         std::string new_num = region_str + num.substr(start);
         out.push_back(std::move(new_num));
     }
